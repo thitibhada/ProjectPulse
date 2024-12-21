@@ -1,0 +1,221 @@
+-- Insert data into Company table
+INSERT INTO Company (Company_ID, Company_Name, Company_Address, Date_Added) VALUES
+(1, 'ABC Corp', '1234 Elm St, Springfield', '2024-01-01'),
+(2, 'XYZ Inc', '5678 Oak St, Rivertown', '2024-02-01'),
+(3, 'Tech Solutions', '9101 Pine St, Mountainview', '2024-03-01'),
+(4, 'Innovative Systems', '1122 Maple St, Lakewood', '2024-04-01'),
+(5, 'Global Enterprises', '3344 Cedar St, Oceanside', '2024-05-01'),
+(6, 'GreenTech', '5566 Birch St, Greenfield', '2024-06-01'),
+(7, 'HealthCo', '7788 Birch St, Metrocity', '2024-07-01'),
+(8, 'MedTech Innovations', '9900 Spruce St, Rivertown', '2024-08-01'),
+(9, 'FreshFoods Ltd', '1234 Elm St, Springfield', '2024-09-01'),
+(10, 'Optima Industries', '5678 Oak St, Rivertown', '2024-10-01'),
+(11, 'Mega Corporation', '9101 Pine St, Mountainview', '2024-11-01'),
+(12, 'EcoGoods', '1122 Maple St, Lakewood', '2024-12-01'),
+(13, 'Future Tech', '3344 Cedar St, Oceanside', '2024-01-02'),
+(14, 'Prime Solutions', '5566 Birch St, Greenfield', '2024-02-02'),
+(15, 'Power Enterprises', '7788 Birch St, Metrocity', '2024-03-02'),
+(16, 'Cloud Technologies', '9900 Spruce St, Rivertown', '2024-04-02'),
+(17, 'Fusion Foods', '1234 Elm St, Springfield', '2024-05-02'),
+(18, 'NextGen Systems', '5678 Oak St, Rivertown', '2024-06-02'),
+(19, 'VisionTech', '9101 Pine St, Mountainview', '2024-07-02'),
+(20, 'Skyline Corp', '1122 Maple St, Lakewood', '2024-08-02');
+
+-- Insert data into Users table
+INSERT INTO Users (User_ID, User_Name, Role, Email, Phone, Access_Level, Company_ID, Date_Added) VALUES
+(1, 'John Doe', 'Manager', 'johndoe@abc.com', '123-456-7890', 'Full', 1, '2024-01-01'),
+(2, 'Jane Smith', 'Requester', 'janesmith@xyz.com', '234-567-8901', 'Restricted', 2, '2024-02-01'),
+(3, 'Michael Brown', 'Approver', 'michaelb@tech.com', '345-678-9012', 'Full', 3, '2024-03-01'),
+(4, 'Emily Davis', 'Finance', 'emilyd@innovative.com', '456-789-0123', 'Restricted', 4, '2024-04-01'),
+(5, 'Daniel Johnson', 'Admin', 'danielj@global.com', '567-890-1234', 'Full', 5, '2024-05-01'),
+(6, 'Sophia Miller', 'Manager', 'sophiam@greentech.com', '678-901-2345', 'Full', 6, '2024-06-01'),
+(7, 'William Wilson', 'Requester', 'williamw@healthco.com', '789-012-3456', 'Restricted', 7, '2024-07-01'),
+(8, 'Olivia Moore', 'Approver', 'oliviam@medtech.com', '890-123-4567', 'Full', 8, '2024-08-01'),
+(9, 'James Taylor', 'Finance', 'jamest@freshfoods.com', '901-234-5678', 'Restricted', 9, '2024-09-01'),
+(10, 'Lily Anderson', 'Admin', 'lilya@optima.com', '012-345-6789', 'Full', 10, '2024-10-01'),
+(11, 'Benjamin Harris', 'Manager', 'benjaminh@megacorp.com', '123-456-7890', 'Full', 11, '2024-11-01'),
+(12, 'Ava Clark', 'Requester', 'avac@ecogoods.com', '234-567-8901', 'Restricted', 12, '2024-12-01'),
+(13, 'Isabella Martinez', 'Approver', 'isabellam@futuretech.com', '345-678-9012', 'Full', 13, '2024-01-02'),
+(14, 'Mason Garcia', 'Finance', 'masong@primesolutions.com', '456-789-0123', 'Restricted', 14, '2024-02-02'),
+(15, 'Chloe Lewis', 'Admin', 'chloel@powerent.com', '567-890-1234', 'Full', 15, '2024-03-02'),
+(16, 'Ethan Young', 'Manager', 'ethany@cloudtech.com', '678-901-2345', 'Full', 16, '2024-04-02'),
+(17, 'Madison Walker', 'Requester', 'madisonw@fusionfoods.com', '789-012-3456', 'Restricted', 17, '2024-05-02'),
+(18, 'Alexander Scott', 'Approver', 'alexanders@nextgen.com', '890-123-4567', 'Full', 18, '2024-06-02'),
+(19, 'Charlotte Allen', 'Finance', 'charlottea@visiontech.com', '901-234-5678', 'Restricted', 19, '2024-07-02'),
+(20, 'Jack Nelson', 'Admin', 'jackn@skyline.com', '012-345-6789', 'Full', 20, '2024-08-02');
+
+-- Insert data into Roles table
+INSERT INTO Roles (Role_ID, Role_Name) VALUES
+(1, 'Requester'),
+(2, 'Approver'),
+(3, 'Manager'),
+(4, 'Admin'),
+(5, 'Finance');
+
+-- Insert data into User_Roles table
+INSERT INTO User_Roles (User_Role_ID, User_ID, Role_ID) VALUES
+(1, 1, 3),
+(2, 2, 1),
+(3, 3, 2),
+(4, 4, 5),
+(5, 5, 4),
+(6, 6, 3),
+(7, 7, 1),
+(8, 8, 2),
+(9, 9, 5),
+(10, 10, 4),
+(11, 11, 3),
+(12, 12, 1),
+(13, 13, 2),
+(14, 14, 5),
+(15, 15, 4),
+(16, 16, 3),
+(17, 17, 1),
+(18, 18, 2),
+(19, 19, 5),
+(20, 20, 4);
+
+-- Insert data into Vendor table
+INSERT INTO Vendor (Vendor_ID, Vendor_Name, Contact_Info, Address, Bank_Account, Status, Date_Added, Created_By, Company_ID) VALUES
+(1, 'Tech Supplies', 'techsupplies@vendor.com', '123 Tech St', '1234567890', 'Active', '2024-01-01', 1, 1),
+(2, 'Global Foods', 'globalfoods@vendor.com', '456 Global Ave', '2345678901', 'Active', '2024-02-01', 2, 2),
+(3, 'Med Innovations', 'medinnovations@vendor.com', '789 Med Blvd', '3456789012', 'Inactive', '2024-03-01', 3, 3),
+(4, 'Green Solutions', 'greensolutions@vendor.com', '101 Green Rd', '4567890123', 'Active', '2024-04-01', 4, 4),
+(5, 'Optima Ventures', 'optimaventures@vendor.com', '202 Optima St', '5678901234', 'Active', '2024-05-01', 5, 5),
+(6, 'Eco Supplies', 'ecosupplies@vendor.com', '303 Eco Dr', '6789012345', 'Inactive', '2024-06-01', 6, 6),
+(7, 'HealthMed', 'healthmed@vendor.com', '404 Health Blvd', '7890123456', 'Active', '2024-07-01', 7, 7),
+(8, 'Tech Innovators', 'techinnovators@vendor.com', '505 Innovate Rd', '8901234567', 'Active', '2024-08-01', 8, 8),
+(9, 'Fresh Tech', 'freshtech@vendor.com', '606 Fresh St', '9012345678', 'Active', '2024-09-01', 9, 9),
+(10, 'Mega Vendors', 'megavendors@vendor.com', '707 Mega St', '0123456789', 'Inactive', '2024-10-01', 10, 10),
+(11, 'Fusion Solutions', 'fusionsolutions@vendor.com', '808 Fusion Ave', '1234567890', 'Active', '2024-11-01', 11, 11),
+(12, 'NextGen Suppliers', 'nextgensuppliers@vendor.com', '909 Gen Rd', '2345678901', 'Active', '2024-12-01', 12, 12),
+(13, 'Vision Tech', 'visiontech@vendor.com', '010 Vision St', '3456789012', 'Active', '2024-01-02', 13, 13),
+(14, 'Skyline Supplies', 'skylinesupplies@vendor.com', '111 Skyline Rd', '4567890123', 'Inactive', '2024-02-02', 14, 14),
+(15, 'Prime Solutions', 'primesolutions@vendor.com', '222 Prime Blvd', '5678901234', 'Active', '2024-03-02', 15, 15),
+(16, 'Cloud Supplies', 'cloudsupplies@vendor.com', '333 Cloud Ave', '6789012345', 'Active', '2024-04-02', 16, 16),
+(17, 'Power Technologies', 'powertech@vendor.com', '444 Power Rd', '7890123456', 'Inactive', '2024-05-02', 17, 17),
+(18, 'MedTech Supplies', 'medtechsupplies@vendor.com', '555 Med Rd', '8901234567', 'Active', '2024-06-02', 18, 18),
+(19, 'Fusion Tech', 'fusiontech@vendor.com', '666 Fusion St', '9012345678', 'Active', '2024-07-02', 19, 19),
+(20, 'NextGen Tech', 'nextgen@vendor.com', '777 NextGen Blvd', '0123456789', 'Inactive', '2024-08-02', 20, 20);
+
+-- Insert data into Purchase_Order table
+INSERT INTO Purchase_Order (Order_ID, Vendor_ID, Order_Date, Delivery_Date, Total_Amount, Status, Created_By, Company_ID) VALUES
+(1, 1, '2024-01-01', '2024-01-10', 10000, 'Pending', 1, 1),
+(2, 2, '2024-02-01', '2024-02-10', 15000, 'Approved', 2, 2),
+(3, 3, '2024-03-01', '2024-03-10', 20000, 'Pending', 3, 3),
+(4, 4, '2024-04-01', '2024-04-10', 12000, 'Rejected', 4, 4),
+(5, 5, '2024-05-01', '2024-05-10', 25000, 'Approved', 5, 5),
+(6, 6, '2024-06-01', '2024-06-10', 18000, 'Pending', 6, 6),
+(7, 7, '2024-07-01', '2024-07-10', 9000, 'Approved', 7, 7),
+(8, 8, '2024-08-01', '2024-08-10', 13000, 'Rejected', 8, 8),
+(9, 9, '2024-09-01', '2024-09-10', 16000, 'Pending', 9, 9),
+(10, 10, '2024-10-01', '2024-10-10', 11000, 'Approved', 10, 10),
+(11, 11, '2024-11-01', '2024-11-10', 22000, 'Pending', 11, 11),
+(12, 12, '2024-12-01', '2024-12-10', 21000, 'Approved', 12, 12),
+(13, 13, '2024-01-02', '2024-01-12', 14000, 'Rejected', 13, 13),
+(14, 14, '2024-02-02', '2024-02-12', 17000, 'Pending', 14, 14),
+(15, 15, '2024-03-02', '2024-03-12', 12000, 'Approved', 15, 15),
+(16, 16, '2024-04-02', '2024-04-12', 20000, 'Rejected', 16, 16),
+(17, 17, '2024-05-02', '2024-05-12', 25000, 'Pending', 17, 17),
+(18, 18, '2024-06-02', '2024-06-12', 9000, 'Approved', 18, 18),
+(19, 19, '2024-07-02', '2024-07-12', 13000, 'Rejected', 19, 19),
+(20, 20, '2024-08-02', '2024-08-12', 16000, 'Pending', 20, 20);
+
+-- Insert data into Purchase_Order_Approval table
+INSERT INTO Purchase_Order_Approval (Approval_ID, Order_ID, Approver_ID, Approval_Status, Approval_Date) VALUES
+(1, 1, 3, 'Approved', '2024-01-02'),
+(2, 2, 4, 'Approved', '2024-02-02'),
+(3, 3, 5, 'Pending', '2024-03-02'),
+(4, 4, 6, 'Rejected', '2024-04-02'),
+(5, 5, 7, 'Approved', '2024-05-02'),
+(6, 6, 8, 'Pending', '2024-06-02'),
+(7, 7, 9, 'Approved', '2024-07-02'),
+(8, 8, 10, 'Rejected', '2024-08-02'),
+(9, 9, 11, 'Pending', '2024-09-02'),
+(10, 10, 12, 'Approved', '2024-10-02'),
+(11, 11, 13, 'Pending', '2024-11-02'),
+(12, 12, 14, 'Approved', '2024-12-02'),
+(13, 13, 15, 'Rejected', '2024-01-03'),
+(14, 14, 16, 'Pending', '2024-02-03'),
+(15, 15, 17, 'Approved', '2024-03-03'),
+(16, 16, 18, 'Rejected', '2024-04-03'),
+(17, 17, 19, 'Pending', '2024-05-03'),
+(18, 18, 20, 'Approved', '2024-06-03'),
+(19, 19, 21, 'Rejected', '2024-07-03'),
+(20, 20, 22, 'Pending', '2024-08-03');
+
+-- Insert data into Goods_Invoice_Receipt table
+INSERT INTO Goods_Invoice_Receipt (Invoice_ID, Order_ID, Receipt_Date, Amount, Status, Company_ID) VALUES
+(1, 1, '2024-01-10', 10000, 'Paid', 1),
+(2, 2, '2024-02-10', 15000, 'Pending', 2),
+(3, 3, '2024-03-10', 20000, 'Paid', 3),
+(4, 4, '2024-04-10', 12000, 'Pending', 4),
+(5, 5, '2024-05-10', 25000, 'Paid', 5),
+(6, 6, '2024-06-10', 18000, 'Pending', 6),
+(7, 7, '2024-07-10', 9000, 'Paid', 7),
+(8, 8, '2024-08-10', 13000, 'Pending', 8),
+(9, 9, '2024-09-10', 16000, 'Paid', 9),
+(10, 10, '2024-10-10', 11000, 'Pending', 10),
+(11, 11, '2024-11-10', 22000, 'Paid', 11),
+(12, 12, '2024-12-10', 21000, 'Pending', 12),
+(13, 13, '2024-01-12', 14000, 'Paid', 13),
+(14, 14, '2024-02-12', 17000, 'Pending', 14),
+(15, 15, '2024-03-12', 12000, 'Paid', 15),
+(16, 16, '2024-04-12', 20000, 'Pending', 16),
+(17, 17, '2024-05-12', 25000, 'Paid', 17),
+(18, 18, '2024-06-12', 9000, 'Pending', 18),
+(19, 19, '2024-07-12', 13000, 'Paid', 19),
+(20, 20, '2024-08-12', 16000, 'Pending', 20);
+
+-- Insert data into Payment table
+INSERT INTO Payment (Payment_ID, Invoice_ID, Payment_Date, Amount, Status) VALUES
+(1, 1, '2024-01-15', 10000, 'Completed'),
+(2, 2, '2024-02-15', 15000, 'Pending'),
+(3, 3, '2024-03-15', 20000, 'Completed'),
+(4, 4, '2024-04-15', 12000, 'Pending'),
+(5, 5, '2024-05-15', 25000, 'Completed'),
+(6, 6, '2024-06-15', 18000, 'Pending'),
+(7, 7, '2024-07-15', 9000, 'Completed'),
+(8, 8, '2024-08-15', 13000, 'Pending'),
+(9, 9, '2024-09-15', 16000, 'Completed'),
+(10, 10, '2024-10-15', 11000, 'Pending'),
+(11, 11, '2024-11-15', 22000, 'Completed'),
+(12, 12, '2024-12-15', 21000, 'Pending'),
+(13, 13, '2024-01-17', 14000, 'Completed'),
+(14, 14, '2024-02-17', 17000, 'Pending'),
+(15, 15, '2024-03-17', 12000, 'Completed'),
+(16, 16, '2024-04-17', 20000, 'Pending'),
+(17, 17, '2024-05-17', 25000, 'Completed'),
+(18, 18, '2024-06-17', 9000, 'Pending'),
+(19, 19, '2024-07-17', 13000, 'Completed'),
+(20, 20, '2024-08-17', 16000, 'Pending');
+
+-- Insert data into Payment_Method table
+INSERT INTO Payment_Method (Method_ID, Method_Name) VALUES
+(1, 'Credit Card'),
+(2, 'Bank Transfer'),
+(3, 'Cash'),
+(4, 'Cheque');
+
+-- Insert data into Payment_Transaction table
+INSERT INTO Payment_Transaction (Transaction_ID, Payment_ID, Method_ID, Transaction_Date, Amount) VALUES
+(1, 1, 1, '2024-01-15', 10000),
+(2, 2, 2, '2024-02-15', 15000),
+(3, 3, 3, '2024-03-15', 20000),
+(4, 4, 4, '2024-04-15', 12000),
+(5, 5, 1, '2024-05-15', 25000),
+(6, 6, 2, '2024-06-15', 18000),
+(7, 7, 3, '2024-07-15', 9000),
+(8, 8, 4, '2024-08-15', 13000),
+(9, 9, 1, '2024-09-15', 16000),
+(10, 10, 2, '2024-10-15', 11000),
+(11, 11, 3, '2024-11-15', 22000),
+(12, 12, 4, '2024-12-15', 21000),
+(13, 13, 1, '2024-01-17', 14000),
+(14, 14, 2, '2024-02-17', 17000),
+(15, 15, 3, '2024-03-17', 12000),
+(16, 16, 4, '2024-04-17', 20000),
+(17, 17, 1, '2024-05-17', 25000),
+(18, 18, 2, '2024-06-17', 9000),
+(19, 19, 3, '2024-07-17', 13000),
+(20, 20, 4, '2024-08-17', 16000);
