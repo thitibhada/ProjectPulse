@@ -2,7 +2,7 @@
 ProcuraFlow: A mobile-friendly procure-to-pay platform designed to streamline approval workflows. It enables users to easily review, approve, reject, or return documents for reprocessing, ensuring efficiency, transparency, and seamless integration of procurement processes in real-time.
 
 ## ER Diagram 
-![p2p](https://github.com/user-attachments/assets/efea29f4-24fb-4ab0-b45a-8dacca1057c2)
+![p2p](https://github.com/user-attachments/assets/b32660d4-5187-4067-94c8-8fd1f10ec3ec)
 
 ### Copyright
 Copyright (c) 2024 Thitibhada Sukitkanaporn. All rights reserved.
