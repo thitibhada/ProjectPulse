@@ -142,16 +142,6 @@ CREATE TABLE Payment_Approval (
     FOREIGN KEY (Approved_By) REFERENCES Users(User_ID)
 );
 
--- Table for Change Management
-CREATE TABLE Change_Management (
-    Change_ID INT AUTO_INCREMENT PRIMARY KEY,
-    Change_Type ENUM('Configuration', 'System', 'Data') NOT NULL,
-    Description TEXT,
-    Change_Date DATE NOT NULL,
-    Changed_By INT,
-    FOREIGN KEY (Changed_By) REFERENCES Users(User_ID)
-);
-
 -- Table for Segregation of Duties (SOD) for PO Creation and Approval
 CREATE TABLE SOD_Purchase_Order (
     SOD_ID INT AUTO_INCREMENT PRIMARY KEY,
