@@ -1,0 +1,58 @@
+## ProcuraFlow Daily Operations
+
+-- Select all data from Company table
+SELECT * FROM Company;
+
+-- Select all data from Users table
+SELECT * FROM Users;
+
+-- Select all data from Roles table
+SELECT * FROM Roles;
+
+-- Select all data from Vendor table
+SELECT * FROM Vendor;
+
+-- Select all data from Purchase_Order table
+SELECT * FROM Purchase_Order;
+
+-- Select all data from Purchase_Order_Approval table
+SELECT * FROM Purchase_Order_Approval;
+
+-- Select all data from Goods_Invoice_Receipt table
+SELECT * FROM Goods_Invoice_Receipt;
+
+-- Select all data from Stock_Management table
+SELECT * FROM Stock_Management;
+
+-- Select all data from Accounting_Record table
+SELECT * FROM Accounting_Record;
+
+-- Select all data from Payment_Approval table
+SELECT * FROM Payment_Approval;
+
+-- Select all data from SOD_Purchase_Order table
+SELECT * FROM SOD_Purchase_Order;
+
+-- Select all data from Audit_Trail table
+SELECT * FROM Audit_Trail;
+
+-- Select all data from BOM_Standard_Control table
+SELECT * FROM BOM_Standard_Control;
+
+-- Select all data from Cost_Calculation table
+SELECT * FROM Cost_Calculation;
+
+-- Select all data from Purchase_History table
+SELECT * FROM Purchase_History;
+
+-- Select all data from Payment_History table
+SELECT * FROM Payment_History;
+
+-- Select all data from Procura_Employee table
+SELECT * FROM Procura_Employee;
+
+-- Select all data from Client_Support_Interaction table
+SELECT * FROM Client_Support_Interaction;
+
+-- Select all data from Client_Feedback table
+SELECT * FROM Client_Feedback;
