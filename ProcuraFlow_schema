@@ -1,0 +1,128 @@
+-- Table for Companies
+CREATE TABLE Company (
+    Company_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Company_Name VARCHAR(255) NOT NULL,
+    Company_Address TEXT,
+    Date_Added DATE DEFAULT CURRENT_DATE
+);
+
+-- Table for Users
+CREATE TABLE Users (
+    User_ID INT PRIMARY KEY AUTO_INCREMENT,
+    User_Name VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) UNIQUE NOT NULL,
+    Phone VARCHAR(50),
+    Access_Level ENUM('Full', 'Restricted') DEFAULT 'Restricted',
+    Company_ID INT, -- Reference to the company
+    Date_Added DATE DEFAULT CURRENT_DATE,
+    FOREIGN KEY (Company_ID) REFERENCES Company(Company_ID) ON DELETE SET NULL
+);
+
+-- Table for Roles
+CREATE TABLE Roles (
+    Role_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Role_Name ENUM('Requester', 'Approver', 'Manager', 'Admin', 'Finance') NOT NULL UNIQUE,
+    Description TEXT
+);
+
+-- Table for User Roles (Mapping users to roles)
+CREATE TABLE User_Roles (
+    User_Role_ID INT PRIMARY KEY AUTO_INCREMENT,
+    User_ID INT NOT NULL,
+    Role_ID INT NOT NULL,
+    FOREIGN KEY (User_ID) REFERENCES Users(User_ID) ON DELETE CASCADE,
+    FOREIGN KEY (Role_ID) REFERENCES Roles(Role_ID) ON DELETE CASCADE,
+    UNIQUE (User_ID, Role_ID) -- Prevents duplicate role assignments
+);
+
+-- Table for Vendors
+CREATE TABLE Vendor (
+    Vendor_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Vendor_Name VARCHAR(255) NOT NULL,
+    Contact_Info VARCHAR(255) CHECK (Contact_Info LIKE '%@%'),
+    Address TEXT,
+    Bank_Account VARCHAR(20) CHECK (Bank_Account RLIKE '^[0-9]+$'),
+    Status ENUM('Active', 'Inactive') DEFAULT 'Active',
+    Date_Added DATE DEFAULT CURRENT_DATE,
+    Created_By INT,
+    Company_ID INT,
+    FOREIGN KEY (Created_By) REFERENCES Users(User_ID),
+    FOREIGN KEY (Company_ID) REFERENCES Company(Company_ID)
+);
+
+-- Table for Company-Vendor Relationships
+CREATE TABLE Company_Vendor (
+    Company_ID INT,
+    Vendor_ID INT,
+    PRIMARY KEY (Company_ID, Vendor_ID),
+    FOREIGN KEY (Company_ID) REFERENCES Company(Company_ID),
+    FOREIGN KEY (Vendor_ID) REFERENCES Vendor(Vendor_ID)
+);
+
+-- Table for Purchase Orders
+CREATE TABLE Purchase_Order (
+    PO_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Vendor_ID INT NOT NULL,
+    PO_Date DATE NOT NULL,
+    Total_Amount DECIMAL(10, 2) NOT NULL,
+    Status ENUM('Pending', 'Approved', 'Rejected', 'Returned') DEFAULT 'Pending',
+    Date_Created DATE DEFAULT CURRENT_DATE,
+    Requested_By INT NOT NULL,
+    Approved_By INT,
+    Company_ID INT NOT NULL,
+    FOREIGN KEY (Vendor_ID) REFERENCES Vendor(Vendor_ID),
+    FOREIGN KEY (Requested_By) REFERENCES Users(User_ID),
+    FOREIGN KEY (Approved_By) REFERENCES Users(User_ID),
+    FOREIGN KEY (Company_ID) REFERENCES Company(Company_ID)
+);
+
+-- Table for Purchase Order Approvals
+CREATE TABLE Purchase_Order_Approval (
+    Approval_ID INT PRIMARY KEY AUTO_INCREMENT,
+    PO_ID INT NOT NULL,
+    Approval_Date DATE DEFAULT CURRENT_DATE,
+    Approved_By INT NOT NULL,
+    Status ENUM('Approved', 'Rejected', 'Returned') NOT NULL,
+    Comments TEXT,
+    Approval_Type ENUM('Initial Approval', 'Reprocessing', 'Final Approval') NOT NULL,
+    Release_Strategy ENUM('Amount Limit', 'Product Type') NOT NULL,
+    FOREIGN KEY (PO_ID) REFERENCES Purchase_Order(PO_ID),
+    FOREIGN KEY (Approved_By) REFERENCES Users(User_ID)
+);
+
+-- Table for Goods Receipt and Invoice
+CREATE TABLE Goods_Invoice_Receipt (
+    Receipt_ID INT PRIMARY KEY AUTO_INCREMENT,
+    PO_ID INT NOT NULL,
+    Goods_Received_Date DATE NOT NULL,
+    Invoice_Received_Date DATE NOT NULL,
+    Receipt_Status ENUM('Pending', 'Approved', 'Rejected') NOT NULL,
+    Goods_Quantity INT NOT NULL,
+    Invoice_Amount DECIMAL(10, 2) NOT NULL,
+    Tolerance_Perc DECIMAL(5, 2) DEFAULT 5.0,
+    FOREIGN KEY (PO_ID) REFERENCES Purchase_Order(PO_ID)
+);
+
+-- Table for Stock Management
+CREATE TABLE Stock_Management (
+    Stock_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Product_ID INT NOT NULL,
+    Quantity INT NOT NULL,
+    Warehouse_Location VARCHAR(255),
+    Stock_Level INT NOT NULL,
+    Last_Updated DATE DEFAULT CURRENT_DATE,
+    Updated_By INT,
+    FOREIGN KEY (Updated_By) REFERENCES Users(User_ID)
+);
+
+-- Table for Audit Trail
+CREATE TABLE Audit_Trail (
+    Audit_ID INT PRIMARY KEY AUTO_INCREMENT,
+    PO_ID INT,
+    User_ID INT,
+    Action_Type ENUM('Created', 'Approved', 'Rejected', 'Returned', 'Updated') NOT NULL,
+    Action_Date DATE DEFAULT CURRENT_DATE,
+    Details TEXT,
+    FOREIGN KEY (PO_ID) REFERENCES Purchase_Order(PO_ID),
+    FOREIGN KEY (User_ID) REFERENCES Users(User_ID)
+);
